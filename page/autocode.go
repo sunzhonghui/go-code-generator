@@ -7,7 +7,6 @@ import (
 	"code/gen/util/conf"
 	"code/gen/util/logger"
 	"errors"
-	"fmt"
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/dialog"
@@ -64,7 +63,6 @@ func AutoScreen(win fyne.Window) fyne.CanvasObject {
 		})
 	tableList.OnSelected = func(id widget.TableCellID) {
 		if len(tableListData) > id.Row {
-			fmt.Println(len(tableListData), id.Row)
 			tableListData[id.Row].Checked = !tableListData[id.Row].Checked
 			tableList.Unselect(id)
 			tableList.Refresh()

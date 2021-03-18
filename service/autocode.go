@@ -8,8 +8,6 @@ import (
 	"code/gen/util/conf"
 	"code/gen/util/logger"
 	"code/gen/util/strcase"
-	"encoding/json"
-	"fmt"
 	"github.com/sirupsen/logrus"
 	"io/ioutil"
 	"os"
@@ -49,12 +47,6 @@ func Autocode(tableList []auto.TableInfo) error {
 		}
 	}
 
-	//DirExistAndMake(autoPath)// 检查 文件夹是否存在
-
-	marshal, _ := json.Marshal(autoData)
-	fmt.Println(string(marshal))
-	fmt.Println(allTempFile)
-
 	for _, tv := range autoData { //数据列表
 		for _, fv := range allTempFile { // 文件列表
 			if err := autocodeFile(tv, fv); err != nil {
@@ -91,10 +83,11 @@ func autocodeFile(tv auto.AutoCodeStruct, fv string) error {
 		file, _ := os.OpenFile(autoPath+structName+".go", os.O_CREATE|os.O_WRONLY, 0755)
 		err := files.Execute(file, tv)
 		if err != nil {
-			fmt.Println(err)
+			logger.Log.WithFields(logrus.Fields{"data": err}).Error("代码生成失败")
+			return err
 		}
+		logger.Log.WithFields(logrus.Fields{"data": autoPath + structName + ".go"}).Info("代码生成文件")
 	}
-	fmt.Println(autoPath)
 	return nil
 }
 
