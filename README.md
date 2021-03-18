@@ -2,7 +2,7 @@
 
 #### v0.0.1
 
-![首页](https://github.com/sunzhonghui/go-code-generator/blob/master/resource/images/main.png?raw=true)
+![首页](https://raw.githubusercontent.com/sunzhonghui/go-code-generator/master/resource/images/main.png)
 
 ### 简介
 
