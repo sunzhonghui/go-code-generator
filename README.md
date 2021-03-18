@@ -2,6 +2,8 @@
 
 #### v0.0.1
 
+![首页](https://github.com/sunzhonghui/go-code-generator/blob/master/resource/images/main.png?raw=true)
+
 ### 简介
 
 > 采用Fyne 编写的Gui客户端，跨平台编译
@@ -14,55 +16,22 @@
 
 ### 依赖组件
 
-- gorm-v2 
-- gin
-- gin-swagger
+- gorm-v2 [https://github.com/go-gorm/gorm](https://github.com/go-gorm/gorm)
+- gin-gonic [https://github.com/gin-gonic/gin](https://github.com/gin-gonic/gin)
+- swaggo [https://github.com/swaggo/swag](https://github.com/swaggo/swag)
 
-### 生成的结构
+### 自动加载配置
 
-现在生成的类型
+项目启动的时候会自动加载配置到 /resource 下
 
-- model
-- mapper
-- service
-- api
-- router
+font/ 字体文件
+temp/ 模板文件
+conf.yaml 默认配置文件
 
-生成的目录结构 会生成在当前程序运行目录 gen-code/ 下
-
-------router 
-
-------project
-
-----模块1
-
---model
-
---mapper
-
---service
-
---api
-
-----模块2
-
---model
-
---mapper
-
---service
-
---api
+### 配置
 
 ……
 
-### 动态模板
-
-可以根据不同架构自行编辑生成模板文件
-
-模板文件会在项目启动的时候
-
-自动装载到当前程序运行目录 temp/ 下
 
 
 
