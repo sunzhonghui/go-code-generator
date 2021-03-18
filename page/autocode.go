@@ -12,6 +12,8 @@ import (
 	"fyne.io/fyne/v2/dialog"
 	"fyne.io/fyne/v2/widget"
 	"github.com/sirupsen/logrus"
+	"net/url"
+	"os"
 	"strings"
 )
 
@@ -116,6 +118,9 @@ func AutoScreen(win fyne.Window) fyne.CanvasObject {
 				dialog.ShowError(err, win)
 			} else {
 				dialog.ShowInformation("提示", "代码生成成功", win)
+				pwd, _ := os.Getwd()
+				u, _ := url.Parse(pwd + "/resource/autocode/")
+				fyne.CurrentApp().OpenURL(u)
 			}
 		} else {
 			dialog.ShowError(errors.New("请选择表"), win)

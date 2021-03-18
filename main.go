@@ -5,7 +5,6 @@ import (
 	"code/gen/page"
 	"code/gen/runner"
 	"code/gen/util/logger"
-	"fmt"
 	"github.com/sirupsen/logrus"
 	"net/url"
 	"os"
@@ -49,7 +48,6 @@ func main() {
 		logger.Log.WithFields(logrus.Fields{"data": ""}).Info("项目配置")
 	})
 	fileItem := fyne.NewMenuItem("模板文件", func() {
-		fmt.Println()
 		pwd, _ := os.Getwd()
 		u, _ := url.Parse(pwd + "/resource/temp/")
 		_ = a.OpenURL(u)
