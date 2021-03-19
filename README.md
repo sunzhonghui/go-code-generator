@@ -1,6 +1,6 @@
 ## Golang 通用代码生成器 go-code-generator
 
-#### v0.0.1
+#### v1.0.0
 
 ![首页](https://raw.githubusercontent.com/sunzhonghui/go-code-generator/master/resource/images/main.png)
 
