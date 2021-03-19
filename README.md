@@ -22,7 +22,9 @@
 
 ### 自动加载配置
 
-项目启动的时候会自动加载配置到 /resource 下
+项目启动的时候会自动创建配置文件夹
+
+自动加载默认配置文件到 /resource 下
 
 font/ 字体文件
 temp/ 模板文件
@@ -30,6 +32,12 @@ conf.yaml 默认配置文件
 
 ### 配置
 
+
+
+
+### 打包
+
+fyne package -os windows -icon idmisstx.png
 ……
 
 

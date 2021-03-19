@@ -3,18 +3,30 @@ package main
 
 import (
 	"code/gen/page"
+	"code/gen/resource/images"
 	"code/gen/runner"
 	"code/gen/util/logger"
+	"fyne.io/fyne/v2"
+	"fyne.io/fyne/v2/app"
+	"fyne.io/fyne/v2/driver/desktop"
+	"fyne.io/fyne/v2/widget"
 	"github.com/sirupsen/logrus"
 	"net/url"
 	"os"
-
-	"fyne.io/fyne/v2"
-	"fyne.io/fyne/v2/app"
-	"fyne.io/fyne/v2/theme"
 )
 
+var a fyne.App
+var Loading fyne.Window
+
 func init() {
+	a = app.NewWithID("com.idmiss.generator")
+	driver := fyne.CurrentApp().Driver()
+	if drv, ok := driver.(desktop.Driver); ok {
+		Loading = drv.CreateSplashWindow()
+		Loading.SetContent(widget.NewLabelWithStyle("正在加载……",
+			fyne.TextAlignCenter, fyne.TextStyle{Bold: true}))
+		Loading.Hide()
+	}
 	runner.Runner()
 }
 
@@ -29,8 +41,9 @@ func shortcutFocused(s fyne.Shortcut, w fyne.Window) {
 }
 
 func main() {
-	a := app.NewWithID("com.idmiss.generator")
-	a.SetIcon(theme.FyneLogo())
+
+	a.Settings().SetTheme(page.MyTheme{})
+	a.SetIcon(images.ResourceIdmisstxPng)
 	w := a.NewWindow("Golang 代码生成器")
 	w.SetFixedSize(true)
 	topWindow = w
@@ -55,7 +68,7 @@ func main() {
 
 	helpMenu := fyne.NewMenu("帮助",
 		fyne.NewMenuItem("查看文档", func() {
-			u, _ := url.Parse("http://www.idmiss.com/")
+			u, _ := url.Parse("http://www.idmiss.com/709")
 			_ = a.OpenURL(u)
 		}))
 
@@ -85,5 +98,5 @@ func main() {
 	w.Resize(fyne.NewSize(640, 460))
 	w.ShowAndRun()
 
-	os.Unsetenv("FYNE_FONT")
+	//os.Unsetenv("FYNE_FONT")
 }

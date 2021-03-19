@@ -8,6 +8,8 @@ import (
 	"gorm.io/gorm"
 )
 
+var Version = "v1.0.0"
+
 type DatabaseConf struct {
 	UrlName      string `json:"urlName"`
 	IP           string `json:"ip"`

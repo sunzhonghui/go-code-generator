@@ -7,7 +7,7 @@ import (
 )
 
 func Runner() {
-	font.GetZhFont()
+	//font.GetZhFont()
 	font.GetTemp()
 	conf.Init()
 	logger.InitLog()

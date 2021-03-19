@@ -29,9 +29,9 @@ func welcomeScreen(win fyne.Window) fyne.CanvasObject {
 		container.NewHBox(
 			widget.NewHyperlink("博客", parseURL("http://www.idmiss.com/")),
 			widget.NewLabel("-"),
-			widget.NewHyperlink("文档", parseURL("http://www.idmiss.com/")),
+			widget.NewHyperlink("文档", parseURL("http://www.idmiss.com/709")),
 			widget.NewLabel("-"),
-			widget.NewHyperlink("github", parseURL("http://www.idmiss.com/")),
+			widget.NewHyperlink("github", parseURL("https://github.com/sunzhonghui/go-code-generator")),
 		),
 	))
 }
